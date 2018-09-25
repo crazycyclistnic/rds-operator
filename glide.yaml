@@ -1,0 +1,7 @@
+package: ex1
+import:
+- package: k8s.io/client-go
+  subpackages:
+  - kubernetes
+  - pkg/api/v1
+  - tools/clientcmd

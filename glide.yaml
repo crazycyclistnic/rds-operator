@@ -1,4 +1,4 @@
-package: github.com/crazycyclistnic/rds-operator
+package: github.com/nic-hima/rds-operator
 import:
 - package: k8s.io/client-go
   version: v9.0.0

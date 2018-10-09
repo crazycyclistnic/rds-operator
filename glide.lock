@@ -1,6 +1,11 @@
-hash: f911cf4613f09a617dd4dbdda5b986ef7644c63b6a2662e7f70686861b6170cd
-updated: 2018-09-18T11:27:34.817063-05:00
+hash: 5915ea95165e80956f19749de283cd8256b543ab57ac8e470940c436ee576148
+updated: 2018-10-09T11:01:40.440139-05:00
 imports:
+- name: cloud.google.com/go
+  version: 3b1ae45394a234c385be014e9a488f2bb6eef821
+  subpackages:
+  - compute/metadata
+  - internal
 - name: github.com/ghodss/yaml
   version: 73d445a93680fa1a78ae23a5839bad48f32ba1ee
 - name: github.com/gogo/protobuf
@@ -52,6 +57,7 @@ imports:
   version: 1c05540f6879653db88113bc4a2b70aec4bd491f
   subpackages:
   - context
+  - context/ctxhttp
   - html
   - html/atom
   - http2
@@ -86,9 +92,11 @@ imports:
   version: 03cac3b07182cfb08c0d0c0b6ee72a1ceb151c92
   subpackages:
   - internal
+  - internal/app_identity
   - internal/base
   - internal/datastore
   - internal/log
+  - internal/modules
   - internal/remote_api
   - internal/urlfetch
   - urlfetch
@@ -97,7 +105,7 @@ imports:
 - name: gopkg.in/yaml.v2
   version: 670d4cfef0544295bc27a114dbac37980d83185a
 - name: k8s.io/api
-  version: f456898a08e4bbc5891694118f3819f324de12ff
+  version: fd83cbc87e7632ccd8bbab63d2b673d4e0c631cc
   subpackages:
   - admissionregistration/v1alpha1
   - admissionregistration/v1beta1
@@ -119,7 +127,6 @@ imports:
   - core/v1
   - events/v1beta1
   - extensions/v1beta1
-  - imagepolicy/v1alpha1
   - networking/v1
   - policy/v1beta1
   - rbac/v1
@@ -132,7 +139,7 @@ imports:
   - storage/v1alpha1
   - storage/v1beta1
 - name: k8s.io/apimachinery
-  version: 99c5fa21f87204c2875a7f7ba977895d79b35c44
+  version: 6dd46049f39503a1fc8d65de4bd566829e95faff
   subpackages:
   - pkg/api/errors
   - pkg/api/meta
@@ -170,7 +177,7 @@ imports:
   - pkg/watch
   - third_party/forked/golang/reflect
 - name: k8s.io/client-go
-  version: 780aa459ed9ebdc179d410d8055616db2a6f41ea
+  version: 1638f8970cefaa404ff3a62950f88b08292b2696
   subpackages:
   - discovery
   - kubernetes
@@ -212,8 +219,10 @@ imports:
   - pkg/apis/clientauthentication/v1beta1
   - pkg/version
   - plugin/pkg/client/auth/exec
+  - plugin/pkg/client/auth/gcp
   - rest
   - rest/watch
+  - third_party/forked/golang/template
   - tools/auth
   - tools/clientcmd
   - tools/clientcmd/api
@@ -227,4 +236,5 @@ imports:
   - util/flowcontrol
   - util/homedir
   - util/integer
+  - util/jsonpath
 testImports: []

@@ -21,18 +21,24 @@ import (
 
 func main() {
 	//check to make sure commands present
-	if len(os.Args[1:]) <= 0 {
-		fmt.Fprintf(os.Stderr, "usage: %s [--deployment deploymentName]", os.Args[0])
+	if len(os.Args[1:]) != 2 {
+		fmt.Fprintf(os.Stderr, "usage: %s [--deployment deploymentName]\n", os.Args[0])
 		os.Exit(1)
 	}
 
 	cmdArg := os.Args[1]
+	cmdParams := os.Args[2]
+
+	var conf configAction
 
 	//check what method by which to create service from
 	switch cmdArg {
 	case "--deployment":
 		{
 			//TODO: create interface to handle different flags & thus different logic
+			conf = &deploymentMethod{
+				deploymentName: cmdParams,
+			}
 		}
 	case "--selector":
 		{
@@ -40,7 +46,7 @@ func main() {
 		}
 	default:
 		{
-			fmt.Fprintf(os.Stderr, "unknown operation: %s", cmdArg)
+			fmt.Fprintf(os.Stderr, "unknown operation: %s\n", cmdArg)
 			os.Exit(2)
 		}
 	}
@@ -59,5 +65,5 @@ func main() {
 	}
 
 	//TODO: pass in c as param to whatever method is being executed based on cmdArgs
-	c.AppsV1().Deployments("") //here for now so c does not throw error for not being used
+	conf.Execute(c)
 }

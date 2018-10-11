@@ -33,9 +33,10 @@ func main() {
 
 	//check what method by which to create service from
 	switch cmdArg {
+	//creates interface to handle different flags & thus different logic
 	case "--deployment":
 		{
-			//TODO: create interface to handle different flags & thus different logic
+
 			conf = &deploymentMethod{
 				deploymentName: cmdParams,
 			}
@@ -64,6 +65,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//TODO: pass in c as param to whatever method is being executed based on cmdArgs
+	//pass in c as param to whatever method is being executed based on cmdArgs
 	conf.Execute(c)
 }

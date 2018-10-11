@@ -41,9 +41,6 @@ func (conf *deploymentMethod) Execute(c *kubernetes.Clientset) {
 	}
 	fmt.Fprintf(os.Stdout, "Deployment %s is present in cluster\n", deployment.GetName())
 
-	//TODO: using the found deployment, create a service of type clusterIP that matches the selectors in
-	//the deployment
-
 	//Define service spec based on deployment
 	serviceSpec := &api.Service{
 		ObjectMeta: metav1.ObjectMeta{
